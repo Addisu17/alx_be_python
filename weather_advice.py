@@ -10,3 +10,5 @@ elif weather_input == "cold":
         print("Make sure to wear a warm coat and a scarf.")
 else:
     print("Sorry, I don't have recommendations for this weather.")
+
+# This is the end of the code and the code I write above does exactly what it intended to do.

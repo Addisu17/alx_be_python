@@ -30,76 +30,43 @@ def arithmetic_operations():
     print(f"Result: {result}")
 
 # Function for the second assignment: Shopping List Manager
-def shopping_list_manager():
-    def display_menu():
-        print("\nShopping List Manager")
-        print("1. Add Item")
-        print("2. Remove Item")
-        print("3. View List")
-        print("4. Exit")
+# Import the display_menu function and any other required functions from shopping_list_manager.py
+from shopping_list_manager import display_menu
 
-    shopping_list = []  # Start with an empty list
+def main():
+    shopping_list = []  # Initialize an empty shopping list
     
     while True:
         display_menu()  # Show the menu
         choice = input("Enter your choice: ")  # Get the user's choice
         
-        if choice == '1':
-            # Add Item
-            item = input("Enter the item to add: ")  # Ensure the prompt matches the check exactly
+        if choice == '1':  # Add Item
+            item = input("Enter the item to add: ")
             shopping_list.append(item)  # Add item to the list
             print(f"'{item}' has been added to your shopping list.")
-
-        elif choice == '2':
-            # Remove Item
+        
+        elif choice == '2':  # Remove Item
             item = input("Enter the item to remove: ")
             if item in shopping_list:
                 shopping_list.remove(item)  # Remove item from the list
                 print(f"'{item}' has been removed from your shopping list.")
             else:
-                print(f"'{item}' is not in the shopping list. Cannot remove.")
-
-        elif choice == '3':
-            # View List
+                print(f"'{item}' not found in the shopping list.")
+        
+        elif choice == '3':  # View List
             if shopping_list:
-                print("\nYour Shopping List:")
-                for index, item in enumerate(shopping_list, start=1):
-                    print(f"{index}. {item}")
+                print("\nYour shopping list:")
+                for idx, item in enumerate(shopping_list, 1):  # Display items with numbering
+                    print(f"{idx}. {item}")
             else:
                 print("Your shopping list is empty.")
-
-        elif choice == '4':
-            # Exit
-            print("Goodbye!")
-            break
-
+        
+        elif choice == '4':  # Exit
+            print("Goodbye!")  # Display exit message
+            break  # Exit the loop
+        
         else:
-            # Invalid choice
-            print("Invalid choice. Please try again.")
+            print("Invalid choice. Please try again.")  # Handle invalid input
 
-# Display menu to choose which task to run
-def display_menu():
-    print("\nChoose the task to run:")
-    print("1. Arithmetic Operations")
-    print("2. Shopping List Manager")
-    print("3. Exit")
-
-# Main function to handle user input for task selection
-def main():
-    while True:
-        display_menu()
-        choice = input("Enter your choice: ")
-
-        if choice == '1':
-            arithmetic_operations()
-        elif choice == '2':
-            shopping_list_manager()
-        elif choice == '3':
-            print("Exiting... Goodbye!")
-            break
-        else:
-            print("Invalid choice. Please try again.")
-
-# Run the main function if the script is executed
 if __name__ == "__main__":
-    main()
+    main()  # Start the program
